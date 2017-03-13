@@ -25,6 +25,10 @@ public class ExemploSocket {
         try(ServerSocket server = new ServerSocket(9000);){
             Socket socket = server.accept();
             Scanner scan = new Scanner(socket.getInputStream());
+             while(scan.hasNext()){
+                 String linha = scan.nextLine();
+                 System.out.println(linha);
+             }
         }catch (IOException ex){
             Logger.getLogger(ExemploSocket.class.getName()).log(Level.SEVERE, null, ex);
         }
